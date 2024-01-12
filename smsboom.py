@@ -113,12 +113,18 @@ def run(thread: int, phone: Union[str, tuple], frequency: int, interval: int, en
     logger.info(
         f"手机号:{phone}, 线程数:{thread}, 执行次数:{frequency}, 间隔时间:{interval}")
     try:
+        logger.error("0")
         _api = load_json()
+        logger.error(_api)
+        logger.error("1")
         _api_get = load_getapi()
+        logger.error("2")
         _proxies = load_proxies()
+        logger.error("3")
         # fix: by Ethan
         if not _proxies:
             if enable_proxy:
+                logger.error("4")
                 logger.error("无法读取任何代理....请取消-e")
                 sys.exit(1)
             _proxies = [None]
